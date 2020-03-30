@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Mult and div suite">
+    <test name="Mult test">
+        <classes>
+            <class name="hw1.CalculatorMultTest"></class>
+        </classes>
+    </test>
+
+    <test name="Div test">
+        <classes>
+            <class name="hw1.CalculatorDivTest"></class>
+        </classes>
+    </test>
+</suite> 
