@@ -37,17 +37,17 @@ public class ExerciseTwoTest extends DriverBase {
         driver.findElement(By.linkText("Different elements")).click();
 
         //6. Select checkboxes
-        WebElement water = driver.findElement(By.cssSelector(".label-checkbox:nth-child(1)"));
+        WebElement water = driver.findElement(By.xpath("//label[normalize-space() = 'Water']"));
         water.click();
-        WebElement wind = driver.findElement(By.cssSelector(".label-checkbox:nth-child(3)"));
+        WebElement wind = driver.findElement(By.xpath("//label[normalize-space() = 'Wind']"));
         wind.click();
 
         //7. Select radio
-        WebElement selen = driver.findElement(By.cssSelector(".label-radio:nth-child(4)"));
+        WebElement selen = driver.findElement(By.xpath("//label[normalize-space() = 'Selen']"));
         selen.click();
 
         //8. Select in dropdown
-        WebElement yellow = driver.findElement(By.cssSelector(".uui-form-element > option:nth-child(4)"));
+        WebElement yellow = driver.findElement(By.xpath("//option[normalize-space() = 'Yellow']"));
         yellow.click();
 
         /*9. Assert that 
