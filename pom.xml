@@ -52,6 +52,7 @@
                 <suite.xml>hw1/MultDivTestSuite</suite.xml>
             </properties>
         </profile>
+
         <profile>
             <id>hw2-full</id>
             <activation>
@@ -79,6 +80,36 @@
             </activation>
             <properties>
                 <suite.xml>hw2/ExerciseTwoTest</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>hw3-full</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>hw3/FullTestSuite</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>hw3-first</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>hw3/ExerciseOneTest</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>hw3-second</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>hw3/ExerciseTwoTest</suite.xml>
             </properties>
         </profile>
     </profiles>
