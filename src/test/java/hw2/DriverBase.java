@@ -11,6 +11,7 @@ import org.testng.annotations.BeforeMethod;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
+@SuppressWarnings("unused")
 public class DriverBase {
 
     protected WebDriver driver;
