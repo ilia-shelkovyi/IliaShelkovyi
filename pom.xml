@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.epam.training</groupId>
-    <artifactId>hw2</artifactId>
+    <artifactId>hw1</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 
@@ -16,6 +16,7 @@
         <selenium.version>3.141.59</selenium.version>
         <webdrivermanager.version>3.8.1</webdrivermanager.version>
         <slf4j-simple.version>1.7.30</slf4j-simple.version>
+        <calculator.version>1.0</calculator.version>
 
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
@@ -23,32 +24,61 @@
 
     <profiles>
         <profile>
-            <id>full</id>
+            <id>hw1-full</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.xml>FullTestSuite</suite.xml>
+                <suite.xml>hw1/FullTestSuite</suite.xml>
             </properties>
         </profile>
 
         <profile>
-            <id>first</id>
+            <id>hw1-sumsub</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.xml>ExerciseOneTest</suite.xml>
+                <suite.xml>hw1/SumSubTestSuite</suite.xml>
             </properties>
         </profile>
 
         <profile>
-            <id>second</id>
+            <id>hw1-multdiv</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.xml>ExerciseTwoTest</suite.xml>
+                <suite.xml>hw1/MultDivTestSuite</suite.xml>
+            </properties>
+        </profile>
+        <profile>
+            <id>hw2-full</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>hw2/FullTestSuite</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>hw2-first</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>hw2/ExerciseOneTest</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>hw2-second</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>hw2/ExerciseTwoTest</suite.xml>
             </properties>
         </profile>
     </profiles>
@@ -79,6 +109,14 @@
             <version>${slf4j-simple.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.epam.tat.module4</groupId>
+            <artifactId>calculator</artifactId>
+            <version>${calculator.version}</version>
+            <scope>system</scope>
+            <systemPath>${pom.basedir}/libs/calculator-${calculator.version}.jar</systemPath>
+        </dependency>
     </dependencies>
 
     <build>
@@ -98,7 +136,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
-                    <suiteXmlFiles>src/test/resources/${project.artifactId}/${suite.xml}.xml</suiteXmlFiles>
+                    <suiteXmlFiles>src/test/resources/${suite.xml}.xml</suiteXmlFiles>
                 </configuration>
             </plugin>
         </plugins>
