@@ -31,8 +31,8 @@ public class LeftMenu extends AbstractPage {
     	return menuItems.stream().allMatch(WebElement::isDisplayed);
     }
 
-	public List<String> getMenuItemsText() {
-		return menuItems.stream().map(WebElement::getText).collect(Collectors.toList());
-	}
+    public List<String> getMenuItemsText() {
+    	return menuItems.stream().map(WebElement::getText).collect(Collectors.toList());
+    }
 
 }

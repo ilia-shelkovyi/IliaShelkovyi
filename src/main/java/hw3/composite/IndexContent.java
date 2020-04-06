@@ -37,9 +37,9 @@ public class IndexContent extends AbstractPage {
     	return imageTexts.stream().allMatch(WebElement::isDisplayed);
     }
 
-	public List<String> getImageTextsText() {
-		return imageTexts.stream().map(WebElement::getText).collect(Collectors.toList());
-	}
+    public List<String> getImageTextsText() {
+    	return imageTexts.stream().map(WebElement::getText).collect(Collectors.toList());
+    }
 
     public boolean isFrameDisplayed() {
     	return frame.isDisplayed();

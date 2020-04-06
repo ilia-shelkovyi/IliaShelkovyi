@@ -42,16 +42,16 @@ public class HeaderMenu extends AbstractPage {
     	return userName.isDisplayed();
     }
 
-	public String getUserNameText() {
-		return userName.getText();
-	}
+    public String getUserNameText() {
+    	return userName.getText();
+    }
 
     public boolean isMenuButtonsDisplayed() {
     	return menuButtons.stream().allMatch(WebElement::isDisplayed);
     }
 
-	public List<String> getMenuButtonsText() {
-		return menuButtons.stream().map(WebElement::getText).collect(Collectors.toList());
-	}
+    public List<String> getMenuButtonsText() {
+    	return menuButtons.stream().map(WebElement::getText).collect(Collectors.toList());
+    }
 
 }
