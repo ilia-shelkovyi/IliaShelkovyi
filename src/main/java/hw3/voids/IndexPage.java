@@ -8,26 +8,26 @@ import hw3.composite.IndexContent;
 
 public class IndexPage extends AbstractPage {
 
-	private IndexContent indexContent;
+    private IndexContent indexContent;
 
     public IndexPage(WebDriver driver) {
         super(driver);
         this.indexContent = new IndexContent(driver);
     }
 
-	public void goTo(String url) {
-		driver.get(url);
-	}
+    public void goTo(String url) {
+    	driver.get(url);
+    }
 
-	public String getBrowserTitle() {
-		return driver.getTitle();
-	}
+    public String getBrowserTitle() {
+    	return driver.getTitle();
+    }
 
     public void switchToDefaultContent() {
     	driver.switchTo().defaultContent();
     }
 
-    public void login(String username, String password){
+    public void login(String username, String password) {
         headerMenu.login(username, password);
     }
 
@@ -35,17 +35,17 @@ public class IndexPage extends AbstractPage {
     	return headerMenu.isUserNameDisplayed();
     }
 
-	public String getUserNameText() {
-		return headerMenu.getUserNameText();
-	}
+    public String getUserNameText() {
+    	return headerMenu.getUserNameText();
+    }
 
     public boolean isHeaderMenuButtonsDisplayed() {
     	return headerMenu.isMenuButtonsDisplayed();
     }
 
-	public List<String> getHeaderMenuButtonsText() {
-		return headerMenu.getMenuButtonsText();
-	}
+    public List<String> getHeaderMenuButtonsText() {
+    	return headerMenu.getMenuButtonsText();
+    }
 
     public void goToDifferentElements() {
     	leftMenu.goToDifferentElements();
@@ -55,9 +55,9 @@ public class IndexPage extends AbstractPage {
     	return leftMenu.isMenuItemsDisplayed();
     }
 
-	public List<String> getLeftMenuItemsText() {
-		return leftMenu.getMenuItemsText();
-	}
+    public List<String> getLeftMenuItemsText() {
+    	return leftMenu.getMenuItemsText();
+    }
 
     public void switchToFrame() {
     	indexContent.switchToFrame();
@@ -71,9 +71,9 @@ public class IndexPage extends AbstractPage {
     	return indexContent.isImageTextsDisplayed();
     }
 
-	public List<String> getImageTextsText() {
-		return indexContent.getImageTextsText();
-	}
+    public List<String> getImageTextsText() {
+    	return indexContent.getImageTextsText();
+    }
 
     public boolean isFrameDisplayed() {
     	return indexContent.isFrameDisplayed();

@@ -7,8 +7,8 @@ import hw3.composite.Logs;
 
 public class DifferentElementsPage extends AbstractPage {
 
-	private DifferentElementsContent differentElementsContent;
-	private Logs logs;
+    private DifferentElementsContent differentElementsContent;
+    private Logs logs;
 
     public DifferentElementsPage(WebDriver driver) {
         super(driver);
