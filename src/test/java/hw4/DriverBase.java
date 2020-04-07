@@ -23,10 +23,10 @@ public class DriverBase {
 
     @BeforeMethod
     public void setUp() {
-        WebDriverManager.firefoxdriver().setup();
-        driver = new FirefoxDriver();
-        /*WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();*/
+        /*WebDriverManager.firefoxdriver().setup();
+        driver = new FirefoxDriver();*/
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
 
