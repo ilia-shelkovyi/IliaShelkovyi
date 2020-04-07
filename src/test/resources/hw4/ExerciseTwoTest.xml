@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Second exercise suite">
+    <test name="Second exercise test">
+        <classes>
+            <class name="hw4.ex2.ExerciseTwoTest"></class>
+        </classes>
+    </test>
+</suite> 
