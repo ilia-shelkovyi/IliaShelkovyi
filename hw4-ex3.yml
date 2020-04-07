@@ -1,0 +1,13 @@
+Implemented layers:
+- Test logic
+- Implementation of test logic
+- Working with test data
+- Run of tests
+- Config
+Missed layers:
+- Reports and logs
+- Services
+- Utils
+How to improve:
+- Add allure reports and logs
+- Export test data to file
