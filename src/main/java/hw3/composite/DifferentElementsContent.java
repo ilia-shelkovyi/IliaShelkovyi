@@ -22,15 +22,19 @@ public class DifferentElementsContent extends AbstractPage {
     }
 
     public void selectCheckbox(String checkbox) {
-    	checkboxes.stream().filter(s -> s.getText().equals(checkbox)).forEach(WebElement::click);
+    	selectByString(checkbox, checkboxes);
      }
 
     public void selectRadio(String radio) {
-    	radios.stream().filter(s -> s.getText().equals(radio)).forEach(WebElement::click);
+    	selectByString(radio, radios);
      }
 
     public void selectColor(String color) {
-    	colors.stream().filter(s -> s.getText().equals(color)).forEach(WebElement::click);
+    	selectByString(color, colors);
+     }
+
+    public void selectByString(String value, List<WebElement> elements) {
+    	elements.stream().filter(s -> s.getText().equals(value)).forEach(WebElement::click);
      }
 
 }
