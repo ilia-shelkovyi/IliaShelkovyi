@@ -112,6 +112,36 @@
                 <suite.xml>hw3/ExerciseTwoTest</suite.xml>
             </properties>
         </profile>
+
+        <profile>
+            <id>hw4-full</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>hw4/FullTestSuite</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>hw4-first</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>hw4/ExerciseOneTest</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>hw4-second</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>hw4/ExerciseTwoTest</suite.xml>
+            </properties>
+        </profile>
     </profiles>
 
     <dependencies>
