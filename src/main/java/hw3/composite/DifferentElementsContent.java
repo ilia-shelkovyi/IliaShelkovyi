@@ -33,7 +33,7 @@ public class DifferentElementsContent extends AbstractPage {
     	selectByString(color, colors);
      }
 
-    public void selectByString(String value, List<WebElement> elements) {
+    private void selectByString(String value, List<WebElement> elements) {
     	elements.stream().filter(s -> s.getText().equals(value)).forEach(WebElement::click);
      }
 
