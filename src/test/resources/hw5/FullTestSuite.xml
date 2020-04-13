@@ -2,6 +2,7 @@
 <suite name="Full suite">
     <suite-files>
         <suite-file path="ExerciseOneTest.xml"></suite-file>
+        <suite-file path="ExerciseOneFailedTest.xml"></suite-file>
         <suite-file path="ExerciseTwoTest.xml"></suite-file>
     </suite-files>
 </suite> 

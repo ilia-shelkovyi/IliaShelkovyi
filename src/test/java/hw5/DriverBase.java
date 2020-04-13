@@ -5,16 +5,10 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-
-@SuppressWarnings("unused")
 public class DriverBase {
 
     protected WebDriver driver;
@@ -23,10 +17,8 @@ public class DriverBase {
 
     @BeforeMethod
     public void setUp() {
-        WebDriverManager.firefoxdriver().setup();
-        driver = new FirefoxDriver();
-        /*WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();*/
+        WebDriverSingleton.INSTANCE.createdDriver();
+        driver = WebDriverSingleton.INSTANCE.getDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
 
@@ -40,7 +32,7 @@ public class DriverBase {
     @AfterMethod
     public void tearDown() {
     	//12 / 10. Close Browser
-        driver.quit();
+    	WebDriverSingleton.INSTANCE.getDriver().quit();
     }
 
 }

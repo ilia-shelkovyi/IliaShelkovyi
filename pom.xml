@@ -14,7 +14,6 @@
 
         <testng.version>7.1.0</testng.version>
         <allure-testng.version>2.13.2</allure-testng.version>
-        <allure-maven.version>2.10.0</allure-maven.version>
         <aspectj.version>1.9.5</aspectj.version>
         <selenium.version>3.141.59</selenium.version>
         <webdrivermanager.version>3.8.1</webdrivermanager.version>
@@ -23,6 +22,7 @@
 
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+        <allure-maven.version>2.10.0</allure-maven.version>
     </properties>
 
     <profiles>
@@ -163,6 +163,16 @@
             </activation>
             <properties>
                 <suite.xml>hw5/ExerciseOneTest</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>hw5-first-failed</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>hw5/ExerciseOneFailedTest</suite.xml>
             </properties>
         </profile>
 

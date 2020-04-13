@@ -1,12 +1,12 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="Second exercise suite">
+<suite name="First exercise failed suite">
     <listeners>
         <listener class-name="hw5.AllureScreenshotListener"/>
     </listeners>
 
-    <test name="Second exercise test">
+    <test name="First exercise failed test">
         <classes>
-            <class name="hw5.ex2.ExerciseTwoTest"></class>
+            <class name="hw5.ex1.ExerciseOneFailedTest"></class>
         </classes>
     </test>
 </suite> 

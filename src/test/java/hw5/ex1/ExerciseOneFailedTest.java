@@ -1,5 +1,6 @@
 package hw5.ex1;
 
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -10,7 +11,7 @@ import hw5.steps.IndexPageSteps;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 
-public class ExerciseOneTest extends DriverBase {
+public class ExerciseOneFailedTest extends DriverBase {
 
     @Feature("Test functionality of JDI site")
     @Story("Exercise one from hw3 test")
@@ -33,7 +34,7 @@ public class ExerciseOneTest extends DriverBase {
 
         //5. Assert that there are 4 items on the header section are displayed and they have proper texts
         indexPageSteps.menuButtonsShouldBeDisplayed();
-        indexPageSteps.menuButtonsShouldBe(Arrays.asList("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS"));
+        indexPageSteps.menuButtonsShouldBe(Arrays.asList("HOME", "CONTACT FORM", "SERVICE", "METAL & COLORS"));
 
         //6. Assert that there are 4 images on the Index Page and they are displayed
         indexPageSteps.imagesShouldBeDisplayed();
