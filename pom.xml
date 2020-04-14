@@ -13,8 +13,9 @@
         <java.target.version>1.8</java.target.version>
 
         <testng.version>7.1.0</testng.version>
-        <allure-testng.version>2.13.2</allure-testng.version>
+        <allure.version>2.13.2</allure.version>
         <aspectj.version>1.9.5</aspectj.version>
+        <cucumber.version>5.6.0 </cucumber.version>
         <selenium.version>3.141.59</selenium.version>
         <webdrivermanager.version>3.8.1</webdrivermanager.version>
         <slf4j-simple.version>1.7.30</slf4j-simple.version>
@@ -185,6 +186,16 @@
                 <suite.xml>hw5/ExerciseTwoTest</suite.xml>
             </properties>
         </profile>
+
+        <profile>
+            <id>hw6-full</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>hw6/FullTestSuite</suite.xml>
+            </properties>
+        </profile>
     </profiles>
 
     <dependencies>
@@ -198,8 +209,28 @@
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
-            <version>${allure-testng.version}</version>
+            <version>${allure.version}</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-cucumber5-jvm</artifactId>
+            <version>${allure.version}</version>
         </dependency>
 
         <dependency>
@@ -268,7 +299,7 @@
                 <artifactId>allure-maven</artifactId>
                 <version>${allure-maven.version}</version>
                 <configuration>
-                    <reportVersion>${allure-testng.version}</reportVersion>
+                    <reportVersion>${allure.version}</reportVersion>
                     <resultsDirectory>${project.basedir}/allure-results</resultsDirectory>
                 </configuration>
             </plugin>
