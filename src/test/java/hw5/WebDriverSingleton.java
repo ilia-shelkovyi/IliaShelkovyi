@@ -13,13 +13,8 @@ public enum WebDriverSingleton {
     private WebDriver driver;
 
     public void createdDriver() {
-    	try {
-            WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver();
-    	} catch (Exception e) {
-	        WebDriverManager.firefoxdriver().setup();
-	        driver = new FirefoxDriver();
-    	}
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
     }
 
     public WebDriver getDriver() {
