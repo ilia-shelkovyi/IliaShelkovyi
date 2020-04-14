@@ -7,3 +7,8 @@ log/
 .project
 .settings
 .metadata
+
+# Allure
+.allure/
+allure-results/
+allure-report/
