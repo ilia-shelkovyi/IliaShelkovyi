@@ -4,13 +4,14 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Map;
 
 import hw6.WebDriverSingleton;
+import hw6.entities.UserTableRow;
 import hw6.voids.DifferentElementsPage;
 import hw6.voids.IndexPage;
 import hw6.voids.UserTablePage;
-import io.cucumber.datatable.DataTable;
+import io.cucumber.java.DataTableType;
 import io.cucumber.java.en.Then;
 
 public class ThenSteps {
@@ -62,26 +63,29 @@ public class ThenSteps {
     	assertEquals(userTablePage.getDropdownsCount(), expectedCount);
     }
 
+    @DataTableType
+    public UserTableRow userTable(Map<String, String> userTable) {
+        return new UserTableRow(userTable.get("Number"), userTable.get("User"), userTable.get("Description"));
+    }
+
     @Then("User table should contain following values:")
-    public void userTableShouldContain(DataTable dataTable) {
-    	assertEquals(userTablePage.getNumberColumnTexts(), skipFirstElement(dataTable.column(0)));
-    	assertEquals(userTablePage.getUserColumnTexts(), skipFirstElement(dataTable.column(1)));
-    	assertEquals(userTablePage.getDescriptionColumnTexts(), skipFirstElement(dataTable.column(2)));
+    public void userTableShouldContain(List<UserTableRow> userTableRows) {
+    	for(int i = 0; i < userTableRows.size(); i++) {
+    		assertEquals(userTablePage.getNumberColumnTexts().get(i), userTableRows.get(i).getNumber());
+    		assertEquals(userTablePage.getUserColumnTexts().get(i), userTableRows.get(i).getUser());
+    		assertEquals(userTablePage.getDescriptionColumnTexts().get(i), userTableRows.get(i).getDescription());
+    	}
     }
 
     @Then("Droplist should contain values in column Type for user Roman:")
-    public void droplistShouldContain(DataTable dataTable) {
-    	assertEquals(userTablePage.getDropdownTexts(), skipFirstElement(dataTable.column(0)));
+    public void droplistShouldContain(List<String> droplist) {
+    	assertEquals(userTablePage.getDropdownTexts(), droplist.subList(1, droplist.size()));
     }
 
     @Then("{int} log row has {string} text in log section")
     public void logRowHas(int count, String log) {
     	userTablePage = new UserTablePage(WebDriverSingleton.INSTANCE.getDriver());
     	assertEquals(userTablePage.getLogRowCountFor(log), count);
-    }
-
-    private List<String> skipFirstElement(List<String> list) {
-    	return list.stream().skip(1).collect(Collectors.toList());
     }
 
 }
