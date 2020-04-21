@@ -70,11 +70,7 @@ public class ThenSteps {
 
     @Then("User table should contain following values:")
     public void userTableShouldContain(List<UserTableRow> userTableRows) {
-    	for(int i = 0; i < userTableRows.size(); i++) {
-    		assertEquals(userTablePage.getNumberColumnTexts().get(i), userTableRows.get(i).getNumber());
-    		assertEquals(userTablePage.getUserColumnTexts().get(i), userTableRows.get(i).getUser());
-    		assertEquals(userTablePage.getDescriptionColumnTexts().get(i), userTableRows.get(i).getDescription());
-    	}
+    	assertEquals(userTablePage.getUserTableData(), userTableRows);
     }
 
     @Then("Droplist should contain values in column Type for user Roman:")

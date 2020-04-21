@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 
 import hw6.composite.Logs;
 import hw6.composite.UserTableContent;
+import hw6.entities.UserTableRow;
 
 public class UserTablePage extends AbstractPage {
 
@@ -34,16 +35,8 @@ public class UserTablePage extends AbstractPage {
     	return userTableContent.getDropdownsCount();
     }
 
-    public List<String> getNumberColumnTexts() {
-    	return userTableContent.getNumberColumnTexts();
-    }
-
-    public List<String> getUserColumnTexts() {
-    	return userTableContent.getUserColumnTexts();
-    }
-
-    public List<String> getDescriptionColumnTexts() {
-    	return userTableContent.getDescriptionColumnTexts();
+    public List<UserTableRow> getUserTableData() {
+    	return userTableContent.getUserTableData();
     }
 
     public List<String> getDropdownTexts() {

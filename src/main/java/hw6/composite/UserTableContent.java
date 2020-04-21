@@ -1,11 +1,14 @@
 package hw6.composite;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import hw6.entities.UserTableRow;
 
 public class UserTableContent extends AbstractPage {
 
@@ -47,16 +50,12 @@ public class UserTableContent extends AbstractPage {
     	return checkboxes.size();
     }
 
-    public List<String> getNumberColumnTexts() {
-    	return getTexts(numbers);
-    }
-
-    public List<String> getUserColumnTexts() {
-    	return getTexts(usernames);
-    }
-
-    public List<String> getDescriptionColumnTexts() {
-    	return getTexts(descriptionTexts).stream().map(s -> s.replaceAll("\n", " ")).collect(Collectors.toList());
+    public List<UserTableRow> getUserTableData() {
+    	List<UserTableRow> userTableData = new ArrayList<UserTableRow>();
+    	for(int i = 0; i < getTexts(numbers).size(); i++) {
+    		userTableData.add(new UserTableRow(getTexts(numbers).get(i), getTexts(usernames).get(i), getDescriptionColumnTexts().get(i)));
+    	}
+    	return userTableData;
     }
 
     public List<String> getDropdownTexts() {
@@ -66,6 +65,10 @@ public class UserTableContent extends AbstractPage {
     public void selectCheckboxFor(String name) {
     	int position = usernames.stream().map(WebElement::getText).collect(Collectors.toList()).indexOf(name);
     	checkboxes.get(position).click();
+    }
+
+    private List<String> getDescriptionColumnTexts() {
+    	return getTexts(descriptionTexts).stream().map(s -> s.replaceAll("\n", " ")).collect(Collectors.toList());
     }
 
     private List<String> getTexts(List<WebElement> elements) {
