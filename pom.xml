@@ -8,6 +8,7 @@
     <packaging>jar</packaging>
 
     <properties>
+        <domain>https://jdi-testing.github.io/jdi-light/</domain>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.source.version>1.8</java.source.version>
         <java.target.version>1.8</java.target.version>
@@ -15,10 +16,12 @@
         <testng.version>7.1.0</testng.version>
         <allure.version>2.13.2</allure.version>
         <aspectj.version>1.9.5</aspectj.version>
-        <cucumber.version>5.6.0 </cucumber.version>
+        <cucumber.version>5.6.0</cucumber.version>
         <selenium.version>3.141.59</selenium.version>
         <webdrivermanager.version>3.8.1</webdrivermanager.version>
+        <jdi-light-html.version>1.2.3</jdi-light-html.version>
         <slf4j-simple.version>1.7.30</slf4j-simple.version>
+        <lombok.version>1.18.12</lombok.version>
         <calculator.version>1.0</calculator.version>
 
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
@@ -196,6 +199,16 @@
                 <suite.xml>hw6/FullTestSuite</suite.xml>
             </properties>
         </profile>
+
+        <profile>
+            <id>hw7</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>hw7/TestSuite</suite.xml>
+            </properties>
+        </profile>
     </profiles>
 
     <dependencies>
@@ -239,10 +252,23 @@
             <version>${selenium.version}</version>
         </dependency>
 
-        <dependency>
+        <!--<dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
             <version>${webdrivermanager.version}</version>
+        </dependency>-->
+
+        <dependency>
+            <groupId>com.epam.jdi</groupId>
+            <artifactId>jdi-light-html</artifactId>
+            <version>${jdi-light-html.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
@@ -304,5 +330,11 @@
                 </configuration>
             </plugin>
         </plugins>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <filtering>true</filtering>
+            </testResource>
+        </testResources>
     </build>
 </project>
