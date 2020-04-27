@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import hw7.enities.MetalsColorsData;
@@ -17,6 +18,7 @@ import static com.epam.jdi.light.elements.init.PageFactory.initElements;
 
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.Map;
 
 public class JDITest {
 
@@ -39,7 +41,9 @@ public class JDITest {
 
     @DataProvider
     public Object[] metalsColorsDataProvider() throws IOException {
-        return new ObjectMapper().readValue(Paths.get(PATH).toFile(), MetalsColorsData[].class);
+    	Map<String, MetalsColorsData> metalsColorsData = new ObjectMapper().readValue(Paths.get(PATH).toFile(),
+    			new TypeReference<Map<String, MetalsColorsData>>() {});
+        return metalsColorsData.values().toArray();
     }
     @Test(dataProvider = "metalsColorsDataProvider")
     public void jdiTest(MetalsColorsData metalsColorsData) {
