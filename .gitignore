@@ -12,3 +12,6 @@ log/
 .allure/
 allure-results/
 allure-report/
+
+#JDI
+.logs/
