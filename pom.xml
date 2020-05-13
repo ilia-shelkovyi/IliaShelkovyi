@@ -14,14 +14,15 @@
         <java.target.version>1.8</java.target.version>
 
         <testng.version>7.1.0</testng.version>
+        <rest-assured.version>4.2.0</rest-assured.version>
         <allure.version>2.13.2</allure.version>
         <aspectj.version>1.9.5</aspectj.version>
         <cucumber.version>5.6.0</cucumber.version>
         <selenium.version>3.141.59</selenium.version>
         <webdrivermanager.version>3.8.1</webdrivermanager.version>
         <jdi-light-html.version>1.2.3</jdi-light-html.version>
-        <slf4j-simple.version>1.7.30</slf4j-simple.version>
         <lombok.version>1.18.12</lombok.version>
+        <slf4j-simple.version>1.7.30</slf4j-simple.version>
         <calculator.version>1.0</calculator.version>
 
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
@@ -209,6 +210,16 @@
                 <suite.xml>hw7/TestSuite</suite.xml>
             </properties>
         </profile>
+
+        <profile>
+            <id>hw8</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>hw8/TestSuite</suite.xml>
+            </properties>
+        </profile>
     </profiles>
 
     <dependencies>
@@ -216,7 +227,14 @@
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
-            <scope>test</scope>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${rest-assured.version}</version>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>
