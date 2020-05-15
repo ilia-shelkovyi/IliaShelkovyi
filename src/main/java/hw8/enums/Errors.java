@@ -5,12 +5,12 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public enum Options {
+public enum Errors {
 
-    IGNORE_DIGITS(2),
-    IGNORE_URLS(4),
-    FIND_REPEAT_WORDS(8),
-    IGNORE_CAPITALIZATION(512);
+	ERROR_UNKNOWN_WORD(1),
+	ERROR_REPEAT_WORD(2),
+	ERROR_CAPITALIZATION(3),
+	ERROR_TOO_MANY_ERRORS(4);
 
     private int value;
 

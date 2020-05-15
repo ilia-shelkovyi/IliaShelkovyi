@@ -1,8 +1,5 @@
 package hw8.service;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.google.gson.Gson;
 
 import hw8.dto.CheckTextDTO;
@@ -14,22 +11,14 @@ import static hw8.enums.Params.*;
 public class RestService {
 
     public RestDTO[] checkText(CheckTextDTO request) {
-        Map<String, Object> params = new HashMap<String, Object>();
-        params.put(TEXT.getValue(), request.getText());
-        params.put(LANG.getValue(), request.getLang());
-        params.put(OPTIONS.getValue(), request.getOptions());
         return new Gson().fromJson(new CommonService()
-		        .getResponse(CHECK_TEXT.getValue(), params)
+		        .getResponse(CHECK_TEXT.getValue(), request.getParamsMap())
 		        .getBody().asString(), RestDTO[].class);
     }
 
     public RestDTO[][] checkTexts(CheckTextsDTO request) {
-        Map<String, Object> params = new HashMap<String, Object>();
-        params.put(TEXT.getValue(), request.getText());
-        params.put(LANG.getValue(), request.getLang());
-        params.put(OPTIONS.getValue(), request.getOptions());
         return new Gson().fromJson(new CommonService()
-		        .getResponse(CHECK_TEXTS.getValue(), params)
+		        .getResponse(CHECK_TEXTS.getValue(), request.getParamsMap())
 		        .getBody().asString(), RestDTO[][].class);
     }
 

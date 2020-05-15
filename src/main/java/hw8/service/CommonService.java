@@ -14,7 +14,7 @@ import static io.restassured.RestAssured.given;
 
 public class CommonService {
 
-	private RequestSpecification REQUEST_SPECIFICATION;
+    private RequestSpecification REQUEST_SPECIFICATION;
 
     public CommonService() {
     	enableLoggingOfRequestAndResponseIfValidationFails();

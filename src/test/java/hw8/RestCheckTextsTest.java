@@ -18,11 +18,12 @@ public class RestCheckTextsTest {
     }
 
     @Test(dataProviderClass = RestDataProvider.class, dataProvider = "incorrectWordsDataProvider")
-    public void incorrectWordsTest(String text[], String lang, String[] expected) {
+    public void incorrectWordsTest(String text[], String lang, String[] expected, int code) {
     	CheckTextsDTO request = CheckTextsDTO.builder().text(text).lang(lang).build();
         RestDTO[][] result = new RestService().checkTexts(request);
         new RestAsserts(result)
-        		.verifyNotEmptyResponses();
+        		.verifyNotEmptyResponses()
+        		.verifyErrors(code);
     }
 
 }

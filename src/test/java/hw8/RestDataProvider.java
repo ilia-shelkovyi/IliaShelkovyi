@@ -1,6 +1,8 @@
 package hw8;
 
+import static hw8.enums.Errors.*;
 import static hw8.enums.Lang.*;
+import static hw8.enums.Options.*;
 
 import org.testng.annotations.DataProvider;
 
@@ -25,8 +27,8 @@ public class RestDataProvider {
     @DataProvider
     public Object[][] repeatedWordDataProvider() {
     	return new Object[][] {
-    			{"приветпривет", RU.getValue(), "привет привет"},
-    			{"hellohello", EN.getValue(), "hello hello"},
+    			{"привет привет", RU.getValue(), FIND_REPEAT_WORDS.getValue(), ERROR_REPEAT_WORD.getValue()},
+    			{"hello hello", EN.getValue(), FIND_REPEAT_WORDS.getValue(), ERROR_REPEAT_WORD.getValue()},
     	};
     }
 
@@ -49,8 +51,8 @@ public class RestDataProvider {
     @DataProvider
     public Object[][] incorrectWordsDataProvider() {
     	return new Object[][] {
-    			{new String[]{"машына", "превет"}, RU.getValue(), new String[]{"машина", "привет"}},
-    			{new String[]{"programm", "helo"}, EN.getValue(), new String[]{"program", "hello"}},
+    			{new String[]{"машына", "превет"}, RU.getValue(), new String[]{"машина", "привет"}, ERROR_UNKNOWN_WORD.getValue()},
+    			{new String[]{"programm", "helo"}, EN.getValue(), new String[]{"program", "hello"}, ERROR_UNKNOWN_WORD.getValue()},
     	};
     }
 

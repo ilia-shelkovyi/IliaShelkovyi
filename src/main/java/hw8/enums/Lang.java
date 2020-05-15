@@ -1,7 +1,9 @@
 package hw8.enums;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+@AllArgsConstructor
 @Getter
 public enum Lang {
 
@@ -10,9 +12,5 @@ public enum Lang {
     EN("en");
 
     private String value;
-
-    Lang(String value) {
-        this.value = value;
-    }
 
 }

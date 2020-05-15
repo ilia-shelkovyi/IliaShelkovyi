@@ -27,12 +27,12 @@ public class RestCheckTextTest {
     }
 
     @Test(dataProviderClass = RestDataProvider.class, dataProvider = "repeatedWordDataProvider")
-    public void repeatedWordTest(String text, String lang, String expected) {
-    	CheckTextDTO request = CheckTextDTO.builder().text(text).lang(lang).build();
+    public void repeatedWordTest(String text, String lang, int options, int code) {
+    	CheckTextDTO request = CheckTextDTO.builder().text(text).lang(lang).options(options).build();
         RestDTO[] result = new RestService().checkText(request);
         new RestAsserts(result)
         		.verifyNotEmptyResponse()
-        		.verifyWord(expected);
+        		.verifyError(code);
     }
 
     @Test(dataProviderClass = RestDataProvider.class, dataProvider = "incorrectSentenceDataProvider")
