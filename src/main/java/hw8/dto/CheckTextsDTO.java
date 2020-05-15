@@ -1,8 +1,6 @@
 package hw8.dto;
 
-import static hw8.enums.Params.LANG;
-import static hw8.enums.Params.OPTIONS;
-import static hw8.enums.Params.TEXT;
+import static hw8.enums.Params.*;
 
 import java.util.HashMap;
 import java.util.Map;
