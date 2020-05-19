@@ -21,37 +21,37 @@ public class RestAsserts {
     }
 
     public void verifyEmptyResponse() {
-        assertTrue(result.length == 0);
+        assertTrue(result.length == 0, "Response is not empty");
     }
 
     public void verifyEmptyResponses() {
-        assertTrue(results[0].length == 0);
+        assertTrue(results[0].length == 0, "Response is not empty");
     }
 
     public RestAsserts verifyNotEmptyResponse() {
-        assertTrue(result.length != 0);
+        assertTrue(result.length != 0, "Response is empty");
         return this;
     }
 
     public RestAsserts verifyNotEmptyResponses() {
-        assertTrue(results[0].length != 0);
+        assertTrue(results[0].length != 0, "Response is empty");
         return this;
     }
 
     public void verifyError(int code) {
-    	stream(result).forEach(r -> assertEquals(r.getCode(), code));
+    	stream(result).forEach(r -> assertEquals(r.getCode(), code, "Incorrect error code"));
     }
 
     public void verifyErrors(int code) {
-        stream(results[0]).forEach(r -> assertEquals(r.getCode(), code));
+        stream(results[0]).forEach(r -> assertEquals(r.getCode(), code, "Incorrect error code"));
     }
 
     public void verifyWord(String word) {
-        assertTrue(stream(result[0].getS()).anyMatch(s -> s.equals(word)));	
+        assertTrue(stream(result[0].getS()).anyMatch(s -> s.equals(word)), "Incorrect word");	
     }
 
     public void verifySentence(String[] sentence) {
-        assertTrue(stream(result).allMatch(r -> stream(sentence).anyMatch(s -> asList(r.getS()).contains(s))));	
+        assertTrue(stream(result).allMatch(r -> stream(sentence).anyMatch(s -> asList(r.getS()).contains(s))), "Incorrect sentence");	
     }
 
 }
