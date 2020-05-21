@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Rest exercise suite">
+    <test name="Rest exercise test">
+        <classes>
+            <class name="hw8.RestCheckTextTest"></class>
+            <class name="hw8.RestCheckTextsTest"></class>
+        </classes>
+    </test>
+</suite> 
